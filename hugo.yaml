@@ -1,4 +1,5 @@
 baseURL: https://KGB.blog.github.io/
-locale: en-us
-title: My New Hugo Project
+locale: zh-cn
+title: KGB专属黑客空间
 theme : "hugo-theme-memento-main"
+copyright: "Copyright © 2026 KGB & MLL"
