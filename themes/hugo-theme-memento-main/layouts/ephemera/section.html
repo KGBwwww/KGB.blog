@@ -1,0 +1,60 @@
+{{ define "main" }}
+
+  <div class="wrapper">
+
+    <aside class="sidebar-left">
+    </aside>
+
+    <div class="middle-container">
+
+      {{ $pages := .RegularPages.ByDate.Reverse }}
+      {{ $paginator := .Paginate $pages }}
+
+      <div class="ephemera-stream" data-infinite-scroll-list>
+        {{ range $paginator.Pages }}
+          <div class="ephemera-item" data-infinite-scroll-item data-url="{{ .RelPermalink }}">
+            <article class="ephemera-body">
+              <div class="ephemera-date">
+                {{ partial "date-format.html" (dict "date" .Page.Date "layout" "2006/01/02 15:04 Monday" "prefix" "") }}
+              </div>
+              <div class="ephemera-summary">
+                {{ .Summary }}
+              </div>
+              <div class="ephemera-content">
+                {{ .ContentWithoutSummary }}
+              </div>
+            </article>
+          </div>
+        {{ end }}
+      </div>
+
+      {{ if $paginator.HasNext }}
+        {{ $nextURL := $paginator.Next.URL }}
+        <div class="older-items" data-infinite-scroll-next data-next-url="{{ $nextURL }}" aria-hidden="true"></div>
+        <noscript>
+          <p class="older-items-fallback">
+            <a href="{{ $nextURL }}">LOAD MORE</a>
+          </p>
+        </noscript>
+      {{ end }}
+
+    </div>
+
+    <aside class="sidebar-right">
+    </aside>
+
+  </div>
+
+  <div id="viewer" class="viewer hidden">
+    <div class="viewer-inner">
+
+      <div class="viewer-left"></div>
+
+      <div class="viewer-right"></div>
+
+    </div>
+
+    <button class="viewer-close" type="button" aria-label="Close viewer">×</button>
+  </div>
+
+{{ end }}

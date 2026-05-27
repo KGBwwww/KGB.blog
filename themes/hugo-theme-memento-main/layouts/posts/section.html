@@ -1,0 +1,80 @@
+{{ define "main" }}
+
+  <div class="wrapper">
+
+    <aside class="sidebar-left">
+      <div  class="posts-category">
+        {{ with .Site.GetPage "Section" .Section }}
+          <ul>
+            <li>
+              <a href="{{ .RelPermalink }}"
+                class="{{ if eq $.RelPermalink .RelPermalink }}active{{ end }}">
+                Total #{{ .RegularPagesRecursive.Len }}
+              </a>
+            </li>
+            {{ range .Sections.ByTitle.Reverse }}
+            <li>
+              <a href="{{ .RelPermalink }}"
+                class="{{ if eq $.RelPermalink .RelPermalink }}active{{ end }}">
+                {{ .LinkTitle }} #{{ .Pages.Len }}
+              </a>
+            </li>
+            {{ end }}
+          </ul>
+        {{ end }}
+      </div>
+    </aside>
+
+    <div class="middle-container">
+    {{ $posts := .RegularPagesRecursive }}
+    {{ range $posts.GroupByDate "2006" }}
+    <div class="posts-year-section">
+
+      <div class="posts-year-section-header">
+        <span class="posts-date-year">{{ .Key }}</span>
+      </div>
+
+      <ul>
+        {{ range .Pages }}
+        <li class="posts-item">
+          <time class="posts-date" datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}" aria-label="{{ .Date.Format "2006-01-02" }}">
+            <span class="posts-date-month">{{ .Date.Format "Jan" }}</span>
+            <span class="posts-date-day">{{ .Date.Format "02" }}</span>
+          </time>
+          <a class="posts-featured" aria-label="{{ .LinkTitle }}">
+            {{ partial "get-featured.html" . }}
+          </a>
+          <div class="posts-pro">
+            <a href="{{ .RelPermalink }}" class="posts-title">{{ .LinkTitle }}</a>
+            <p class="posts-summary">{{ .Summary | plainify | truncate 300 }}</p>
+            {{ with .GetTerms "tags" }}
+              <div class="posts-tags" aria-label="tags">
+                {{ range . }}
+                  <a href="{{ .RelPermalink }}" class="posts-tag">{{ .LinkTitle }}</a>
+                {{ end }}
+              </div>
+            {{ end }}
+          </div>
+        </li>
+        {{ end }}
+      </ul>
+
+    </div>
+    {{ end }}
+    </div>
+
+    <aside class="sidebar-right">
+      <ul>
+        {{ range .Site.Taxonomies.tags.ByCount }}
+        {{ if gt .Count 0 }}
+          <li>
+            <a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}-{{ .Count }}</a>
+          </li>
+        {{ end }}
+        {{end}}
+      </ul>
+    </aside>
+
+  </div>
+
+{{ end }}

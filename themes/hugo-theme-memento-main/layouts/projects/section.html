@@ -1,0 +1,54 @@
+{{ define "main" }}
+
+  <div class="wrapper">
+
+    <aside class="sidebar-left">
+    </aside>
+
+    <div class="middle-container">
+
+      {{ $groups := dict }}
+
+      {{ range .Pages }}
+
+        {{ $categories := .Params.categories | default (slice "misc") }}
+
+        {{ $existing := index $groups $categories | default (slice) }}
+
+        {{ $groups = merge $groups (dict $categories ($existing | append .)) }}
+
+      {{ end }}
+
+      {{ range $categories, $pages := $groups }}
+
+      <section>
+
+        <h2>{{ $categories }}</h2>
+
+        <div class="projects-grid">
+          {{ range $pages }}
+            <div class="project-card">
+              <div class="project-info">
+                <h2 class="project-title">{{ .Title }}</h2>
+                <p class="project-desc">{{ .Description | default "Description: -" }}</p>
+                <a href="{{ .RelPermalink }}" class="project-link">View Project</a>
+              </div>
+              <div class="project-featured">
+                {{ partial "get-featured.html" . }}
+              </div>
+            </div>
+          {{ end }}
+        </div>
+
+      </section>
+
+      {{ end }}
+
+    </div>
+
+    <aside class="sidebar-right">
+    </aside>
+
+  </div>
+
+{{ end }}
