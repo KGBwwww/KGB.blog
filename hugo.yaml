@@ -30,69 +30,21 @@ languages:
       series: series
     menu:
       main:
-        - name: Search/搜索
+        - name: Search
           url: search/
           weight: 10
-        - name: Tags/标签
-          url: tags/
+        - name: Gallery
+          url: gallery/
           weight: 10
-        - name: About/关于
+        - name: Skills
+          url: skills/
+          weight: 10
+        - name: About
           url: about/
           weight: 10
-         
 
-  fr:
-    languageName: ":fr:"
-    weight: 2
-    title: PaperModL2
-    taxonomies:
-      category: FRcategories
-      tag: FRtags
-      series: FRseries
-    menu:
-      main:
-        - name: FRTags
-          url: frtags
-          weight: 10
-        - name: FRCategories
-          url: frcategories
-          weight: 10
-        - name: FRSeries
-          url: frseries
-          weight: 10
-        - name: NullLink
-          url: "#"
-    params:
-      languageAltTitle: China
-      profileMode:
-        enabled: true
-        title: PaperMod
-        imageUrl: "https://raw.githubusercontent.com/googlefonts/noto-emoji/master/svg/emoji_u1f9d1_1f3fb_200d_1f4bb.svg"
-        imageTitle: ProfileMode image
-        subtitle: "☄️ Fast | ☁️ Fluent |   Smooth |   Responsive"
-        buttons:
-          - name: Blog
-            url: posts
-          - name: Profile Mode
-            url: https://github.com/adityatelange/hugo-PaperMod/wiki/Features#profile-mode
 
-  fa:
-    languagedirection: rtl
-    weight: 3
-    title: PaperMod RTL
-    taxonomies:
-      category: FAcategories
-      tag: FAtags
-      series: FAseries
-    menu:
-      main:
-        - name: FATags
-          url: fatags
-          weight: 10
-    params:
-      homeInfoParams:
-        Title: "Hi there  "
-        Content: Welcome to RTL layout
+
 
 outputs:
   home:
@@ -131,13 +83,13 @@ params:
         url: "https://github.com/KGBwwww"
 
   homeInfoParams:
-    Title: "欢迎来到 K G B 的博客"
+    Title: "欢迎来到 KGB 的博客"
     Content: >
         这里记录我摄影/旅行/生活的点滴  
-        技术沉淀 |   知识拓展 |   持续输出  
+        技术沉淀 |  知识拓展 |  持续输出  
 
   socialIcons:
-    - name: redbook
+    - name: xhs
       url: "https://xhslink.com/m/9VAkkDbFZWv"
     - name: email
       url: "mailto:953783390@qq.com"
