@@ -89,7 +89,7 @@ params:
   
   profileMode:
     enabled: true
-    title: "欢迎来到我的博客"
+    title: "无往无为 知止不殆"
     subtitle: "日记 | 摄影 | 旅行"
     imageUrl: "images/avatar.jpg"
     imageTitle: "头像"
