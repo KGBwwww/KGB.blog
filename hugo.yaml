@@ -36,6 +36,7 @@ languages:
         - name: Gallery
           url: gallery/
           weight: 5
+        
         - name: Skills
           url: skills/
           weight: 10
@@ -48,6 +49,9 @@ languages:
         - name: Archive
           url: /archives/
           weight: 3
+        - name: Photos
+          url: photos/
+          weight: 4
 
 
 

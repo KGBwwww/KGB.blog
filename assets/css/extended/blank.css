@@ -61,3 +61,17 @@
         display: none;
     }
 }
+
+/* 相册 */
+.page-photos figure figcaption{
+    margin: 0.1rem auto 1rem;
+    width: 36%;
+    border-top: 1px solid #bbb;
+    padding: 5px;
+    line-height: .8em;
+}
+.page-photos figure img{
+    box-shadow: 0 12px 40px rgba(0,0,0,.15);
+    border-radius: 8px;
+    margin: .5rem auto .3rem;
+}

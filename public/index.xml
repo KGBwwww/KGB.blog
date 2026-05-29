@@ -58,5 +58,19 @@
       <guid>http://localhost:1313/gallery/</guid>
       <description></description>
     </item>
+    <item>
+      <title>Skills</title>
+      <link>http://localhost:1313/skills/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/skills/</guid>
+      <description>&lt;p&gt;在这里记录我学到的技能&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>相册</title>
+      <link>http://localhost:1313/photos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/photos/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
